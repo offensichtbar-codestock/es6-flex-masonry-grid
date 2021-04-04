@@ -1,0 +1,86 @@
+/* ANIMATION CONFIG */
+
+$translation-bottom:   100px;
+$translation-top:      -100px;
+$translation-slide:    100%;
+$translation-scale:    200px;
+$translation-flip:     -100px;
+
+$translation-transition-duration: 0.5s;
+$fade-transition-duration:        0.75s;
+$slide-transition-duration:       0.75s;
+$scale-transition-duration:       0.5s;
+$flip-transition-duration:        0.5s;
+
+$transition-timing-function: ease;
+
+/* FLEX MASONRY GRID STYLES */
+
+.osb_griditem {
+  height: max-content;
+  visibility: hidden;
+  &.osb_animation-complete {
+    visibility: visible;
+  }
+}
+
+.osb_griditem-inner{
+  will-change: transform;
+}
+
+/* $name, $attribute, $valuestart, $valueend, $transition */
+$animations: (
+    (translatebottom, transform, translateY($translation-bottom), translate(0), transform $translation-transition-duration $transition-timing-function),
+    (translatetop, transform, translateY($translation-top), translate(0), transform $translation-transition-duration $transition-timing-function),
+    (fade, opacity, 0, 1, opacity $fade-transition-duration $transition-timing-function),
+    (slide, transform, translateX($translation-slide), translateX(0), transform $slide-transition-duration $transition-timing-function),
+    (slidein, transform, translateX($translation-flip) rotateY(90deg), translateX(0) rotateY(0deg), transform $slide-transition-duration $transition-timing-function),
+    (scaleup, transform, translateY($translation-scale) scale(1, 0), translateY(0) scale(1, 1), transform $scale-transition-duration $transition-timing-function),
+    (scaledown, transform, translateY(-$translation-scale) scale(1, 0), translateY(0) scale(1, 1), transform $scale-transition-duration $transition-timing-function),
+    (scale, transform, scale(0), scale(1), transform $scale-transition-duration $transition-timing-function)
+);
+
+@each $name, $attribute, $valuestart, $valueend, $transition in $animations {
+  .obs_grid-animation-#{$name}  {
+    .osb_griditem-inner {
+      #{$attribute}: $valuestart;
+      transition: $transition;
+    }
+    .osb_animation-complete{
+      .osb_griditem-inner {
+        #{$attribute}: $valueend;
+      }
+    }
+  }
+}
+
+/* slide */
+.obs_grid-animation-slide .osb_griditem {
+  overflow: hidden;
+}
+
+/* flip */
+.obs_grid-animation-flip .osb_griditem {
+  background-color: transparent;
+  perspective: 1000px;
+}
+
+.obs_grid-animation-flip {
+  .osb_griditem .osb_griditem-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform $flip-transition-duration $transition-timing-function;
+    transform-style: preserve-3d;
+    transform: rotateY(-90deg);
+  }
+  .osb_animation-complete .osb_griditem-inner {
+    transform: rotateY(0deg);
+  }
+}
+
+/* lazyload img styles */
+img {
+  max-width: 100%;
+  height: auto;
+}

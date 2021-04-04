@@ -1,0 +1,74 @@
+{
+  "name": "@offensichtbar-codestock/es6-flex-masonry-grid",
+  "version": "1.0.5",
+  "description": "ES6 Flex Masonry Grid",
+  "main": "main.js",
+  "scripts": {
+    "build-prod": "webpack --mode=production",
+    "build-dev": "webpack serve --mode=development"
+  },
+  "keywords": [
+    "ES6",
+    "flex",
+    "flex-box",
+    "masonry grid",
+    "css-flex",
+    "css-transform",
+    "css"
+  ],
+  "homepage": "https://github.com/offensichtbar-codestock/es6-flex-masonry-grid",
+  "bugs": {
+    "url": "https://github.com/offensichtbar-codestock/es6-flex-masonry-grid/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/offensichtbar-codestock/es6-flex-masonry-grid.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "author": {
+    "name": "Mirja Tschakarov, offensichtbar",
+    "email": "developer@offensichtbar.de",
+    "url": "https://offensichtbar.de"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "imports-loader": "^2.0.0",
+    "node-sass": "^5.0.0",
+    "regenerator-runtime": "^0.13.3",
+    "whatwg-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-block-scoping": "^7.8.3",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/register": "^7.8.3",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-es2017-object-entries": "0.0.5",
+    "copy-webpack-plugin": "^7.0.0",
+    "core-js": "^3.6.4",
+    "css-loader": "^5.2.0",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^7.0.1",
+    "path": "^0.12.7",
+    "postcss-cli": "^8.3.1",
+    "postcss-loader": "^5.2.0",
+    "raw-loader": "^4.0.0",
+    "sass-loader": "^11.0.1",
+    "serve": "^11.3.2",
+    "source-map-loader": "^2.0.1",
+    "terser-webpack-plugin": "^5.0.3",
+    "uglify-js": "^3.7.7",
+    "webpack": "^5.30.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-mode": "^1.0.2"
+  }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>offensichtbar Masonry Grid</title>
+    <link rel="stylesheet" type="text/css" href="./demo.css">
+    <link rel="stylesheet" type="text/css" href="./bundle.min.css">
+</head>
+<body>
+<section class="container">
+    <div id="demo_masonry-grid">
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 3</h2>
+                <p>Hallo. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 4</h2>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 5</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 6</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 7</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 8</h2>
+                <p>Consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 9</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 10</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 11</h2>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 12</h2>
+                <p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/tgMnbr02/osb-demo-1280x720.jpg" width="1280" height="720"/>
+                <h2>Card 13</h2>
+                <p>Lorem ipsum dolor sit amet</p>
+            </div>
+        </div>
+        <div>
+            <div>
+                <img src="https://i.postimg.cc/SR0X2Jx9/osb-demo-1280x990.jpg" width="1280" height="990"/>
+                <h2>Card 14</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" src="./bundle.min.js"></script>
+<script>
+    const OSB_GRID = document.querySelector('#demo_masonry-grid');
+
+    const grid = new OSB_MasonryGrid(OSB_GRID, {
+        animation: true,
+        animationType: 'slideIn',
+        animationDelay: 300
+    });
+
+    const animationDemo = () => {
+        const inputFields = document.getElementsByTagName('input');
+        const getCheckedEl = () => Array.from(inputFields).filter(input => input.checked);
+        const triggerAnimation = () => {
+            const checkedEl = getCheckedEl();
+            const checkedVal = checkedEl[0].id
+            grid.triggerAnimation(checkedVal);
+        }
+        document.addEventListener('input', triggerAnimation);
+
+    }
+    animationDemo();
+</script>
+</body>
+</html>
