@@ -1,6 +1,6 @@
 {
   "name": "@offensichtbar-codestock/es6-flex-masonry-grid",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "ES6 Flex Masonry Grid",
   "main": "main.js",
   "scripts": {

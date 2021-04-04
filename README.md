@@ -142,7 +142,8 @@ The masonry flex grid can be used with popular CSS framework grids like Bootstra
 
 ## Demo
 
-[Live demo on stackblitz](https://demo-es6-flex-masonry-grid.stackblitz.io/)
+[Live demo on Stackblitz](https://demo-es6-flex-masonry-grid.stackblitz.io/)  
+[Stackblitz editor](https://stackblitz.com/edit/demo-es6-flex-masonry-grid?file=index.js)
 
 ## Licence
 
