@@ -1,18 +1,18 @@
 /* ANIMATION CONFIG */
 
-$translation-bottom:   100px;
-$translation-top:      -100px;
-$translation-slide:    100%;
-$translation-scale:    200px;
-$translation-flip:     -100px;
+$translation-bottom:   100px !default;
+$translation-top:      -100px !default;
+$translation-slide:    100% !default;
+$translation-scale:    200px !default;
+$translation-flip:     -100px !default;
 
-$translation-transition-duration: 0.5s;
-$fade-transition-duration:        0.75s;
-$slide-transition-duration:       0.75s;
-$scale-transition-duration:       0.5s;
-$flip-transition-duration:        0.5s;
+$translation-transition-duration: 0.5s !default;
+$fade-transition-duration:        0.75s !default;
+$slide-transition-duration:       0.75s !default;
+$scale-transition-duration:       0.5s !default;
+$flip-transition-duration:        0.5s !default;
 
-$transition-timing-function: ease;
+$transition-timing-function: ease !default;
 
 /* FLEX MASONRY GRID STYLES */
 
