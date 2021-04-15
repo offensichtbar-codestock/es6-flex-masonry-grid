@@ -35,7 +35,7 @@ Embed from jsDelivr
 #### Intialization with Vanilla Javascript
 The instance is created with a DOM element which is the direct parent element of the grid items and a config object.
 ```
-const OSB_GRID = document.querySelector('#demo_masonry-grid');
+const OSB_GRID = document.querySelector('#your-grid-selector');
 new OSB_MasonryGrid(OSB_GRID, {
     // options
     animation: true, // boolean
@@ -69,16 +69,39 @@ It can be initialized on an item with any DOM element selector.
 It is recommended to add width and height attributes to every image to avoid jumping content on image load. If images without width and height attributes are loaded after the initialization of the grid, the card offset is recalculated.
 
 ```
-<div id="#demo_masonry-grid">
+<div id="#your-grid-selector">
     <div>Card 1</div>
     <div>Card 2</div>
     <div>Card 3</div>
 </div>
 ```
+#### Add and remove cards
+
+When the grid is initialized, a class '.osb_griditem' is added dynamically to all direct children of the initialized grid container. When you add a card element retrospectively to the grid, that doesn't happen. You have to add this class yourself when appending the new card element. The grid card translation values are recalculated when a new item was added.
+You can add new cards at any index.
+
+```
+<div id="#your-grid-selector">
+    <div class="osb_griditem">New card</div>
+    <div>Card 1</div>
+    <div>Card 2</div>
+</div>
+```
+If animation is enabled, the new card will also be animated.
 
 ### CSS
 The initial grid animation transitions are defined as CSS styles. 
 If animation is enabled, the CSS file must be attached.
+In order to avoid irritations when the grid is loaded in a slow network, you should add these CSS styles if animation is enabled:
+
+```
+#your-grid-selector > div {
+    visibility: hidden;
+}
+#your-grid-selector > div.osb_animation-complete {
+    visibility: visible;
+}
+```
 
 #### Import
 
@@ -138,7 +161,6 @@ The masonry flex grid can be used with popular CSS framework grids like Bootstra
     </div>
 </div>
 ```
-
 
 ## Demo
 

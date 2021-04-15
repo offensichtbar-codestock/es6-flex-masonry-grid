@@ -41,11 +41,18 @@ body {
 .container {
     padding: 1em;
 }
+#demo_masonry-grid > div {
+    visibility: hidden;
+}
+#demo_masonry-grid > div.osb_animation-complete {
+    visibility: visible;
+}
 .osb_griditem {
     padding: 10px;
 }
 .osb_griditem > div {
     background-color: #f4f4f4;
+    height: 100%;
 }
 h2 {
     font-size: 1.25rem;
@@ -54,4 +61,31 @@ h2 {
 }
 p {
     padding: 0 15px 30px;
+}
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: white;
+}
+input[type=number]{
+    height: 39px;
+    width: 40px;
+    padding-left: 3px;
+}
+button {
+    padding: 10px 20px;
+    border-radius: 0;
+    border: 1px dashed #666666;
+}
+button.btn-delete:hover {
+    border: 1px solid #666666;
+}
+button.btn-add{
+    color: #f4f4f4;
+    border: 1px solid #f4f4f4;
+    background-color: #333333;
+    margin-bottom: 20px;
+}
+button.btn-add:hover {
+    background-color: #444444;
 }

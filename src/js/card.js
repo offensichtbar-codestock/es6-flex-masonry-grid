@@ -1,4 +1,4 @@
-import Image from './image';
+import {ObserveSizing} from "./observer";
 
 export default class Card {
     /**
@@ -12,8 +12,28 @@ export default class Card {
         this._domelement = el;
         this._offset = 0;
         this._cardindex = index;
-        this._imgList = this._domelement.querySelectorAll('img');
         this._init(animate);
+        this._observeCard();
+    }
+
+    get height() {
+        return this._domelement.offsetHeight;
+    }
+
+    get width() {
+        return this._domelement.offsetWidth;
+    }
+
+    get offset() {
+        return this._offset;
+    }
+
+    get cardindex() {
+        return this._cardindex;
+    }
+
+    set cardindex(index) {
+        this._cardindex = index;
     }
 
     /**
@@ -25,7 +45,6 @@ export default class Card {
         this._domelement.classList.add('osb_griditem');
         if(animate) {
             this._domelement.innerHTML = `<div class='osb_griditem-inner'>${this._domelement.innerHTML}</div>`;
-            this._imgList.forEach(img => new Image(img, this._cardindex));
         }
     }
 
@@ -52,15 +71,10 @@ export default class Card {
         this._domelement.classList.remove('osb_animation-complete');
     }
 
-    get height() {
-        return this._domelement.offsetHeight;
-    }
-
-    get width() {
-        return this._domelement.offsetWidth;
-    }
-
-    get offset() {
-        return this._offset;
+    /**
+     * Observes height changes cards
+     */
+    _observeCard(){
+        new ObserveSizing(this._domelement, this);
     }
 }

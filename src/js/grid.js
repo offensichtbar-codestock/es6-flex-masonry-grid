@@ -1,10 +1,12 @@
 import * as Utils from "./utils";
 import Card from "./card";
+import {ObserveDOM} from "./observer";
 
 const DEFAULTCONFIG = {
     animation: true,
     animationType: 'fade',
-    animationDelay: 200
+    animationDelay: 200,
+    observeDOM: false,
 }
 
 export default class OSB_MasonryGrid {
@@ -26,6 +28,7 @@ export default class OSB_MasonryGrid {
         this._animateCards();
         this._initGrid();
         this._addEventListener();
+        this._observeGrid();
     }
     /**
      * Merges default config and custom config
@@ -69,7 +72,8 @@ export default class OSB_MasonryGrid {
      */
     _initGrid() {
         /* Calculates amount of cols */
-        this._cols = Math.round(this._domelement.offsetWidth / this._cards[0].width);
+        const cardWidth = this._cards[0] !== undefined ? this._cards[0].width : this._domelement.offsetWidth;
+        this._cols = Math.round(this._domelement.offsetWidth / cardWidth);
         /* Calculates row heights */
         this._calcRowHeights();
         /* Set card translation for masonry layout */
@@ -96,22 +100,6 @@ export default class OSB_MasonryGrid {
     }
 
     /**
-     * Translates consecutive cards in a column
-     * after change of height of specific card
-     * @param {string} event - loadevent
-     */
-    _translateSuccessors(event) {
-        let index = event.data;
-        let offset = this._cards[index].offset;
-        let successor = index + this._cols;
-        for(successor; successor < this._cards.length; successor += this._cols){
-            offset += this._getRowHeight(successor - this._cols) - this._cards[successor - this._cols].height;
-            this._cards[successor].translate(offset);
-        }
-        this._setContainerHeight();
-    }
-
-    /**
      * Gets row height
      * by comparing heights of cards per row
      * Assigns the largest element height value per row to this._rowHeights array item
@@ -124,17 +112,6 @@ export default class OSB_MasonryGrid {
             const cardsPerRow = this._cards.slice(row * this._cols, row * this._cols + this._cols);
             this._rowHeights[row] = Math.max(...cardsPerRow.map(card=>card.height));
         }
-    }
-
-    /**
-     * Gets row height of current card
-     * @param {number} index - index of card
-     * @return {number} number - row height
-     */
-    _getRowHeight(index){
-        const firstCardIndex = index - ( index % this._cols );
-        const cards = this._cards.slice(firstCardIndex, firstCardIndex + this._cols).map(card => card.height);
-        return Math.max(...cards);
     }
 
     /**
@@ -165,24 +142,47 @@ export default class OSB_MasonryGrid {
     }
 
     /**
-     * Triggers grid animation
-     * @param{object} animationType - animation type
+     * Observes addition and removal of cards
      */
-    triggerAnimation(animationType){
-        const classes = Array.from(this._domelement.classList);
-        const targetClass = classes.filter(cls => cls.includes('obs_grid-animation-'));
-        this._domelement.classList.remove(targetClass);
-        this._cards.forEach(card => card.reset());
-        this._config.animationType = animationType.toLowerCase();
-        this._domelement.classList.add(`obs_grid-animation-${this._config.animationType}`);
-        setTimeout( () => { this._animateCards()}, this._config.animationDelay );
+    _observeGrid(){
+        new ObserveDOM(this._domelement);
+    }
+
+    /**
+     * Creates card instance
+     * Adds class to new card
+     * Adds card instance to array
+     * Reinits grid
+     * @param{event} event - addcard
+     */
+    _addCard(event){
+        const newCard = this._domelement.children[event.data];
+        const card = new Card(newCard, this._cards.length, this._config.animation);
+        this._cards.splice(event.data, 0, card);
+        this._cards.forEach((card, index) => card.cardindex = index);
+        setTimeout(()=> { card.animate() }, 100 );
+        this._initGrid();
+    }
+
+    /**
+     * Removes card instance from array
+     * Resets card indexes
+     * Reinits grid
+     * @param{event} event - removecard
+     */
+    _removeCard(event){
+        const removedElIndex = event.data;
+        this._cards.splice(removedElIndex, 1);
+        this._cards.forEach((card, index) => card.cardindex = index);
+        this._initGrid();
     }
 
     /**
      * Adds event listener for resize
      * Recalculates card specs on resize
      * Recalculates translation values for cards on resize
-     * Reinits grid when image without width and height attributes is loaded
+     * Reinits grid when card is added or removed
+     * Reinits grid when card height changes
      * @callback{function}
      */
     _addEventListener() {
@@ -192,6 +192,8 @@ export default class OSB_MasonryGrid {
         }, 200);
         window.addEventListener('resize', initgrid);
 
-        Utils.ModuleEventManager.on('imgload', this._translateSuccessors );
+        Utils.ModuleEventManager.on('addcard', this._addCard.bind(this) );
+        Utils.ModuleEventManager.on('removecard', this._removeCard.bind(this) );
+        Utils.ModuleEventManager.on('mutationevent', this._initGrid.bind(this) );
     }
 }
