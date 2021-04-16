@@ -1,5 +1,6 @@
 import {ModuleEventManager} from "./utils";
-import { ResizeObserver as Polyfill } from '@juggle/resize-observer';
+import { ResizeObserver as Polyfill } from '@juggle/resize-observer'; // Copyright 2019 JUGGLE LTD, optional dependency for ResizeObserver compatibility extension for Safari
+
 const ResizeObserver = Polyfill;
 export class ObserveDOM {
     constructor(el) {

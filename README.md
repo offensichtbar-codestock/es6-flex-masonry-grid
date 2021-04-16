@@ -161,6 +161,12 @@ The masonry flex grid can be used with popular CSS framework grids like Bootstra
     </div>
 </div>
 ```
+## Dependencies
+
+The current version uses a resize-observer for grid elements. Translation values for elements are updated when the height of a grid element changes without DOM reload. 
+This does not effect a window resize event as this is handled separately. 
+The native window.ResizeObserver currently does not support Safari, therefore it is replaced by this Polyfill:
+[Resize-Observer, Copyright 2019 JUGGLE LTD](https://github.com/juggle/resize-observer)
 
 ## Demo
 
