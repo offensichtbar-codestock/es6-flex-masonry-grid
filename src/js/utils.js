@@ -61,7 +61,6 @@ export class Dispatcher {
 }
 const ModuleEventManager = new Dispatcher();
 
-
 /**
  * Debounces function calls triggered by event fired
  * @param {function} callback

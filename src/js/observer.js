@@ -1,5 +1,6 @@
 import {ModuleEventManager} from "./utils";
-
+import { ResizeObserver as Polyfill } from '@juggle/resize-observer';
+const ResizeObserver = Polyfill;
 export class ObserveDOM {
     constructor(el) {
         this._domelement = el;
