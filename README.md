@@ -2,7 +2,7 @@
 
 ![Offensichtbar Logo](https://i.postimg.cc/nz9jhvpZ/osb-header-git.jpg)
 
-Lightweight ES6 Module for displaying items in a flex-based masonry layout. The grid layout uses the css flexbox feature. In contrast to well-known masonry layouts there is no absolute positioning which makes it applicable for various CSS frameworks. The offsets are set with CSS transform style (translateY). 
+Lightweight ES6 Module for displaying items in a flex-based masonry layout. The grid layout uses the css flexbox feature. In contrast to well-known masonry layouts there is no absolute positioning which makes it applicable for various CSS frameworks. The offsets are set with CSS transform style (translateY).
 
 [![](https://img.shields.io/github/package-json/v/offensichtbar-codestock/es6-flex-masonry-grid?color=%23009fe3)](https://github.com/offensichtbar-codestock/es6-flex-masonry-grid) [![npm version](https://img.shields.io/npm/v/@offensichtbar-codestock/es6-flex-masonry-grid?color=%23009fe3)](https://www.npmjs.com/package/@offensichtbar-codestock/es6-flex-masonry-grid)
 ## Installation
